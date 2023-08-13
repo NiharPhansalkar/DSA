@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class MaxAndMinInArray {
     public static void main(String[] args) {
@@ -15,14 +16,14 @@ public class MaxAndMinInArray {
             System.out.println();
         }
 
-        int[] val = maxAndMin(arr);
+        int[] val = linearSearchMaxAndMin(arr);
 
         for (int i : val) {
             System.out.println(i);
         }
     }
 
-    static int[] maxAndMin(int[] arr) {
+    static int[] linearSearchMaxAndMin(int[] arr) {
         int max = Integer.MIN_VALUE;
         int min = Integer.MAX_VALUE;
 
@@ -39,5 +40,20 @@ public class MaxAndMinInArray {
         retMe[0] = min;
         retMe[1] = max;
         return retMe;
+    }
+
+    static int[] sortMaxAndMin(int[] arr) {
+        Arrays.sort(arr);
+
+        int[] retMe = new int[2];
+
+        retMe[0] = arr[0]; 
+        retMe[1] = arr[arr.length - 1]; 
+
+        return retMe;
+    }
+
+    static int[] tournamentMethod(int[] arr, int low, int high) {
+        
     }
 }
