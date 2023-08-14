@@ -54,6 +54,36 @@ public class MaxAndMinInArray {
     }
 
     static int[] tournamentMethod(int[] arr, int low, int high) {
-        
+        int[] mml;
+        int[] mmr;        
+        int[] retMe = new int[2];
+        if (low == high) {
+            retMe[0] = arr[low]; 
+            retMe[1] = arr[low]; 
+            return retMe;
+        }
+        if (high == low + 1) {
+            Arrays.sort(arr);
+            retMe[0] = arr[low]; 
+            retMe[1] = arr[high]; 
+            return retMe;
+        }
+
+        int mid = (high - low) / 2  + low;
+        mml = tournamentMethod(arr, low, mid);
+        mmr = tournamentMethod(arr, mid + 1, high);
+
+        if (mml[0] < mmr[0]) {
+            retMe[0] = mml[0];
+        } else {
+            retMe[0] = mmr[0];
+        }
+        if (mml[1] > mmr[1]) {
+            retMe[1] = mml[1];
+        } else {
+            retMe[1] = mmr[1];
+        }
+
+        return retMe;
     }
 }
