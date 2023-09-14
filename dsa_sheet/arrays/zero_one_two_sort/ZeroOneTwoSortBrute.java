@@ -1,5 +1,5 @@
 import java.util.Arrays;
-public class ZeroOneTwoSort {
+public class ZeroOneTwoSortBrute {
     public static void main(String[] args) {
         int[] arr = {0, 2, 1, 2, 0};
         int j = 0;
